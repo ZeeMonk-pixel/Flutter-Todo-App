@@ -44,6 +44,10 @@ class _HomeState extends State<Home> {
                               fontSize: 30, fontWeight: FontWeight.w500),
                         ),
                       ),
+                      Text(
+                        todosList.isEmpty ? "Add a Todo" : "",
+                        style: TextStyle(fontSize: 18, color: tdRed),
+                      ),
                       for (ToDo todo in _foundToDo.reversed)
                         ToDoItem(
                           todo: todo,
@@ -148,26 +152,26 @@ class _HomeState extends State<Home> {
   }
 
   Widget searchBox() {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 15),
-    decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(20)),
-    child: TextField(
-      onChanged: (value) =>  _runFilter(value),
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(0),
-          prefixIcon: Icon(
-            Icons.search,
-            color: tdBlack,
-            size: 20,
-          ),
-          prefixIconConstraints: BoxConstraints(maxHeight: 20, minWidth: 25),
-          border: InputBorder.none,
-          hintText: 'Search',
-          hintStyle: TextStyle(color: tdGrey)),
-    ),
-  );
-}
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      child: TextField(
+        onChanged: (value) => _runFilter(value),
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(0),
+            prefixIcon: Icon(
+              Icons.search,
+              color: tdBlack,
+              size: 20,
+            ),
+            prefixIconConstraints: BoxConstraints(maxHeight: 20, minWidth: 25),
+            border: InputBorder.none,
+            hintText: 'Search',
+            hintStyle: TextStyle(color: tdGrey)),
+      ),
+    );
+  }
 
   AppBar _buildAppBar() {
     return AppBar(
@@ -194,5 +198,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-
